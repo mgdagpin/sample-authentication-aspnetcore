@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome @User.Identity.Name</h1>
+
+        @{ 
+            if (User.IsInRole("Admin"))
+            {
+                <label>You are admin</label>
+            }
+            else
+            {
+                <label>You are not admin</label>
+            }
+        }
+
+
+        @{
+            if (User.Identity.IsAuthenticated)
+            {
+                <a href="/Account/Logout">Signout</a>
+            }
+        }
+    </div>
